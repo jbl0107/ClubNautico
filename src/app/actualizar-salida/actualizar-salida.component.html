@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar salida</title>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <h3 class="text-center">Actualizar salida</h3>
+
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+
+                <form #myForm = "ngForm">
+
+                    <div class="mb-3">
+                        <label for="fechaSalida" class="form-label">Fecha de salida</label>
+                        <input type="datetime-local" name="fechaSalida" id="fechaSalida" class="form-control" 
+                        required [(ngModel)]="fechaSalida" #fechaSalidaField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="fechaSalidaField.touched && 
+                        fechaSalidaField.errors?.['required']">
+                            La fecha de salida es obligatoria
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="destino" class="form-label">Destino</label>
+                        <input type="text" name="destino" id="destino" placeholder="Nombre" class="form-control" 
+                        required [(ngModel)]="destino" #destinoField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="destinoField.touched && destinoField.errors?.['required']">
+                            El destino es obligatorio
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3" *ngIf="salida.patronId">
+                        <label for="cuota" class="form-label">Patron</label>
+
+                        <input type="text" class="form-control" name="patron" id="patron" disabled 
+                        [value]="patron.nombre + ' ' + patron.apellidos + ' con DNI: ' + patron.dni">
+
+                    </div>
+
+
+                    <div class="mb-3" *ngIf="salida.barcoId">
+                        <label for="barco" class="form-label">Barco</label>
+                        <input type="text" class="form-control" name="barco" id="barco" disabled 
+                        [value]="barco.nombre + ' con matrícula ' + barco.matricula">
+
+                    </div>
+
+                    
+
+                    
+                   
+
+                
+
+
+                    
+                    <div class="centrarBoton">
+                        <button class="btn btn-success" (click)="update()" [disabled]="!myForm.valid">Actualizar salida</button>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de salidas</title>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <button class="btn btn-success" [routerLink]="['/registrar-salida']">Añadir salida</button>
+        <h3 class="text-center">Salidas</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">ID</th>
+                    <th scope="col" class="text-center">Fecha de salida</th>
+                    <th scope="col" class="text-center">Destino</th>
+                    <th scope="col" class="text-center">Detalles</th>
+                    <th scope="col" class="text-center">Editar</th>
+                    <th scope="col" class="text-center">Borrar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let s of salidas">
+                    <td class="text-center">{{ s.id }}</td>
+                    <td class="text-center">{{ s.fechaSalida }}</td>
+                    <td class="text-center">{{ s.destino }}</td>
+
+                    <td class="text-center">
+                        <i class="bi bi-eye" *ngIf="s.id" (click)="verDetalles(s.id)"></i>
+                    </td>
+
+                    <td class="text-center">
+                        <i class="bi bi-pencil-square" *ngIf="s.id" (click)="actualizarSalida(s.id)"></i>
+                    </td>
+
+                    <td class="text-center">
+                        <i class="bi bi-trash3 trash-rojo" *ngIf="s.id" (click)="delete(s.id)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

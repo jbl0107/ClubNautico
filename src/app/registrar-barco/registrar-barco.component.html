@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar barco</title>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <h3 class="text-center">Registrar barco</h3>
+
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+
+                <form #myForm = "ngForm">
+
+                    <div class="mb-3">
+                        <label for="matricula" class="form-label">Matrícula</label>
+                        <input type="text" class="form-control" name="matricula" id="matricula" [(ngModel)]="matricula" required
+                        pattern="^\d{3}[a-zA-z]{3}.{3}$" placeholder="309Azp1aQ" #matriculaField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="matriculaField.touched && matriculaField.errors?.['required']">
+                            La matrícula es obligatoria
+                        </div>
+
+                        <div class="alert alert-danger mt-2" *ngIf="matriculaField.touched && matriculaField.errors?.['pattern']">
+                            La matrícula no tiene el formato correcto
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="nombre" required
+                        placeholder="Nombre" #nombreField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="nombreField.touched && nombreField.errors?.['required']">
+                           El nombre es obligatorio
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="numeroAmarre" class="form-label">Número de amarre</label>
+                        <input type="number" class="form-control" name="numeroAmarre" id="numeroAmarre" [(ngModel)]="numeroAmarre" 
+                        required placeholder="12" #numeroAmarreField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="numeroAmarreField.touched && numeroAmarreField.errors?.['required']">
+                            El número de amarre es obligatorio
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="cuota" class="form-label">Cuota</label>
+                        <input type="number" class="form-control" name="cuota" id="cuota" [(ngModel)]="cuota" required
+                        placeholder="130.5" #cuotaField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="cuotaField.touched && cuotaField.errors?.['required']">
+                            La cuota es obligatoria
+                        </div>
+                    </div>
+
+                    
+                   
+
+                    <div class="selects">
+                        <div class="mb-3 div-select">
+                            <label for="patron" class="form-label">Patrón</label>
+                            <select class="form-select" id="patron" aria-label="Default select example" name="patronId"
+                            [(ngModel)]="patronId">
+
+                                <optgroup label="Elige un patrón">
+                                    <option *ngFor="let p of patrones" value={{p.id}}>{{ p.nombre }} {{p.apellidos}}</option>
+                                </optgroup>
+                                
+                            </select>
+                        </div>
+
+
+                        <div class="mb-3 div-select">
+                            <label for="socio" class="form-label">Socio</label>
+                            <select class="form-select" id="socio" aria-label="Default select example" name="socioId" 
+                            [(ngModel)]="socioId">
+
+                                <optgroup label="Elige un socio">
+                                    <option *ngFor="let s of socios" value={{s.id}}>{{ s.nombre }} {{ s.apellidos }}</option>
+                                </optgroup>
+                                
+                            </select>
+                        </div>
+                    </div>
+
+
+                    
+                    <div class="centrarBoton">
+                        <button class="btn btn-success" (click)="create()" [disabled]="!myForm.valid">Añadir barco</button>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

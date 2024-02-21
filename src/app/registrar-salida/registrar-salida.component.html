@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar salida</title>
+</head>
+<body>
+
+    
+
+    <div class="container">
+        <br>
+        <h3 class="text-center">Registrar salida</h3>
+        <form #myForm="ngForm">
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+
+                    <div class="mb-3">
+                        <label for="fechaSalida" class="form-label">Fecha de salida</label>
+                        <input type="datetime-local" name="fechaSalida" id="fechaSalida" class="form-control" 
+                        required [(ngModel)]="fechaSalida" #fechaSalidaField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="fechaSalidaField.touched && 
+                        fechaSalidaField.errors?.['required']">
+                            La fecha de salida es obligatoria
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="destino" class="form-label">Destino</label>
+                        <input type="text" name="destino" id="destino" placeholder="Nombre" class="form-control" 
+                        required [(ngModel)]="destino" #destinoField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="destinoField.touched && destinoField.errors?.['required']">
+                            El destino es obligatorio
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="selects">
+                        <div class="mb-3 div-select">
+                            <label for="patron" class="form-label">Patrón</label>
+                            <select class="form-select" id="patron" aria-label="Default select example" name="patronId"
+                            [(ngModel)]="patronId" required #patronField="ngModel">
+
+                                <optgroup label="Elige un patrón">
+                                    <option *ngFor="let p of patrones" value={{p.id}}>{{ p.nombre }} {{p.apellidos}}</option>
+                                </optgroup>
+                                
+                            </select>
+
+                            <div class="alert alert-danger mt-2" *ngIf="patronField.touched && patronField.errors?.['required']">
+                                El patrón es obligatorio
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3 div-select">
+                            <label for="barco" class="form-label">Barco</label>
+                            <select class="form-select" id="barco" aria-label="Default select example" name="barcoId" 
+                            [(ngModel)]="barcoId" required #barcoField="ngModel" >
+
+                                <optgroup label="Elige un barco">
+                                    <option *ngFor="let b of barcos" value={{b.id}}>Nombre: {{ b.nombre }} -
+                                        Matrícula: {{ b.matricula }}</option>
+                                </optgroup>
+
+                                <div class="alert alert-danger mt-2" *ngIf="barcoField.touched && barcoField.errors?.['required']">
+                                    El barco es obligatorio
+                                </div>
+                                
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="centrarBoton" >
+                        <button type="submit" class="btn btn-success" (click)="create()" [disabled]="!myForm.valid">Añadir</button>
+                    </div>
+
+                </div>
+
+            </div>
+            
+
+        </form>
+
+    </div>
+    
+
+    
+</body>
+</html>

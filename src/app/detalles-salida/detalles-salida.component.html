@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la salida</title>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <h3 class="text-center">Detalles de la salida</h3>
+
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+
+                <form #myForm = "ngForm">
+
+                    <div class="mb-3">
+                        <label for="id" class="form-label">ID</label>
+                        <input type="number" class="form-control" name="id" id="id" disabled value={{salida.id}}>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fechaSalida" class="form-label">Fecha de salida</label>
+                        <input type="datetime-local" class="form-control" name="fechaSalida" id="fechaSalida" 
+                        disabled value={{salida.fechaSalida}}>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="destino" class="form-label">Destino</label>
+                        <input type="text" class="form-control" name="destino" id="destino" disabled value={{salida.destino}}>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="patron" class="form-label">Patron</label>
+                        <input type="text" class="form-control" name="patron" id="patron" disabled 
+                        [value]="patron.nombre + ' ' + patron.apellidos + ' con DNI: ' + patron.dni">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="barco" class="form-label">Barco</label>
+                        <input type="text" class="form-control" name="barco" id="barco" disabled 
+                        [value]="barco.nombre + ' con matrícula: ' + barco.matricula">
+                    </div>
+                
+
+                </form>
+
+
+                    
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

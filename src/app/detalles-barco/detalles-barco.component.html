@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del barco</title>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <h3 class="text-center">Detalles del barco {{ barco.matricula }}</h3>
+
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+
+                <form #myForm = "ngForm">
+
+                    <div class="mb-3">
+                        <label for="id" class="form-label">ID</label>
+                        <input type="number" class="form-control" name="id" id="id" disabled value={{barco.id}}>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="matricula" class="form-label">Matrícula</label>
+                        <input type="text" class="form-control" name="matricula" id="matricula" disabled value={{barco.matricula}}>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" disabled value={{barco.nombre}}>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="numeroAmarre" class="form-label">Número de amarre</label>
+                        <input type="number" class="form-control" name="numeroAmarre" id="numeroAmarre" 
+                        disabled value={{barco.numeroAmarre}}>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cuota" class="form-label">Cuota</label>
+                        <input type="number" class="form-control" name="cuota" id="cuota" disabled value={{barco.cuota}}>
+                    </div>
+                    
+
+                    <!--a diferencia de <div class="mb-3" *ngIf="barco.patronId !== undefined">, q solo comprueba si es undefined, 
+                        aqui se valora tbm si no es NaN, null, false, 0, "", ademas de undefined-->
+                    <div class="mb-3" *ngIf="barco.patronId">
+                        <label for="patron" class="form-label">Patron</label>
+                        <input type="text" class="form-control" name="patron" id="patron" disabled 
+                        [value]="patron.nombre + ' ' + patron.apellidos + ' con DNI: ' + patron.dni">
+                    </div>
+
+                    <div class="mb-3" *ngIf="barco.socioId">
+                        <label for="socio" class="form-label">Socio</label>
+                        <input type="text" class="form-control" name="socio" id="socio" disabled 
+                        [value]="socio.nombre + ' ' + socio.apellidos + ' con DNI: ' + socio.dni">
+                    </div>
+
+                    <!--
+                    <div class="mb-3">
+                        <label for="cuota" class="form-label">Salidas</label>
+                        <input type="number" class="form-control" name="cuota" id="cuota" disabled value={{barco.cuota}}>
+                    </div>
+                    -->
+                
+
+                </form>
+
+
+                    
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

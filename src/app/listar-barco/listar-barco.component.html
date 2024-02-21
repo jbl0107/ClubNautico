@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de barcos</title>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <button class="btn btn-success" [routerLink]="['/registrar-barco']">Añadir barco</button>
+        <h3 class="text-center">Listado de barcos</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">ID</th>
+                    <th scope="col" class="text-center">Matrícula</th>
+                    <th scope="col" class="text-center">Nombre</th>
+                    <th scope="col" class="text-center">Ver detalles</th>
+                    <th scope="col" class="text-center">Editar</th>
+                    <th scope="col" class="text-center">Borrar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let b of barcos">
+                    <td class="text-center">{{b.id}}</td>
+                    <td class="text-center">{{b.matricula}}</td>
+                    <td class="text-center">{{b.nombre}}</td>
+
+                    <td class="text-center">
+                        <i class="bi bi-eye" *ngIf="b.id" (click)="verDetalles(b.id)"></i>
+                    </td>
+
+                    <td class="text-center">
+                        <i class="bi bi-pencil-square" *ngIf="b.id" (click)="actualizarBarco(b.id)"></i>
+                    </td>
+
+                    <td class="text-center">
+                        <i class="bi bi-trash3 trash-rojo" *ngIf="b.id" (click)="delete(b.id)"></i>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    
+</body>
+</html>

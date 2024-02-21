@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la persona</title>
+</head>
+<body>
+
+    <h3 class="text-center">Detalles de {{ persona.nombre }}</h3>
+
+    <div class="container">
+        <form>
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6">
+
+                    <div class="mb-3">
+                        <label for="id" class="form-label">ID:</label>
+                        <input id="id" type="number" class="form-control" value={{persona.id}} disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dni" class="form-label">DNI:</label>
+                        <input id="dni" type="text" class="form-control" value={{persona.dni}} disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input id="nombre" type="text" class="form-control" value={{persona.nombre}} disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="apellidos" class="form-label">Apellidos:</label>
+                        <input id="apellidos" type="text" class="form-control" value={{persona.apellidos}} disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Edad:</label>
+                        <input id="edad" type="number" class="form-control" value={{persona.edad}} disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="numTelefono" class="form-label">Número de teléfono:</label>
+                        <input id="numTelefono" type="number" class="form-control" value={{persona.numTelefono}} disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fechaNacimiento" class="form-label">Fecha de nacimiento:</label>
+                        <input id="fechaNacimiento" type="date" class="form-control" value={{persona.fechaNacimiento}} disabled>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+
+        
+
+        
+
+
+    </div>
+    
+
+
+
+    
+</body>
+</html>

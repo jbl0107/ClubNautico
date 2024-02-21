@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar barco</title>
+</head>
+<body>
+
+    <div class="container">
+        <br>
+        <h3 class="text-center">Actualizar barco</h3>
+
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+
+                <form #myForm = "ngForm">
+
+                    <div class="mb-3">
+                        <label for="matricula" class="form-label">Matrícula</label>
+                        <input type="text" class="form-control" name="matricula" id="matricula" [(ngModel)]="matricula" required
+                        pattern="^\d{3}[a-zA-z]{3}.{3}$" placeholder="309Azp1aQ" #matriculaField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="matriculaField.touched && matriculaField.errors?.['required']">
+                            La matrícula es obligatoria
+                        </div>
+
+                        <div class="alert alert-danger mt-2" *ngIf="matriculaField.touched && matriculaField.errors?.['pattern']">
+                            La matrícula no tiene el formato correcto
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" [(ngModel)]="nombre" required
+                        placeholder="Nombre" #nombreField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="nombreField.touched && nombreField.errors?.['required']">
+                           El nombre es obligatorio
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="numeroAmarre" class="form-label">Número de amarre</label>
+                        <input type="number" class="form-control" name="numeroAmarre" id="numeroAmarre" [(ngModel)]="numeroAmarre" 
+                        required placeholder="12" #numeroAmarreField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="numeroAmarreField.touched && numeroAmarreField.errors?.['required']">
+                            El número de amarre es obligatorio
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="cuota" class="form-label">Cuota</label>
+                        <input type="number" class="form-control" name="cuota" id="cuota" [(ngModel)]="cuota" required
+                        placeholder="130.5" #cuotaField="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="cuotaField.touched && cuotaField.errors?.['required']">
+                            La cuota es obligatoria
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3" *ngIf="barco.patronId">
+                        <label for="cuota" class="form-label">Patron</label>
+
+                        <input type="text" class="form-control" name="patron" id="patron" disabled 
+                        [value]="patron.nombre + ' ' + patron.apellidos + ' con DNI: ' + patron.dni">
+
+                    </div>
+
+
+                    <div class="mb-3" *ngIf="barco.socioId">
+                        <label for="socio" class="form-label">Socio</label>
+                        <input type="text" class="form-control" name="socio" id="socio" disabled 
+                        [value]="socio.nombre + ' ' + socio.apellidos + ' con DNI: ' + socio.dni">
+
+                    </div>
+
+                    
+                   
+
+                
+
+
+                    
+                    <div class="centrarBoton">
+                        <button class="btn btn-success" (click)="update()" [disabled]="!myForm.valid">Actualizar barco</button>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
