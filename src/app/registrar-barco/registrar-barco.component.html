@@ -69,26 +69,24 @@
 
                     <div class="selects">
                         <div class="mb-3 div-select">
-                            <label for="patron" class="form-label">Patrón</label>
+                            <label for="patron" class="form-label">Patrón (opcional)</label>
                             <select class="form-select" id="patron" aria-label="Default select example" name="patronId"
                             [(ngModel)]="patronId" >
 
-                            <optgroup label="Elige un patrón">
+                                <option value="" selected>Selecciona un patrón</option>
                                 <option *ngFor="let p of patrones" value={{p.id}}>{{ p.nombre }} {{p.apellidos}}</option>
-                            </optgroup>
                                 
                             </select>
                         </div>
 
 
                         <div class="mb-3 div-select">
-                            <label for="socio" class="form-label">Socio</label>
+                            <label for="socio" class="form-label">Socio (opcional)</label>
                             <select class="form-select" id="socio" aria-label="Default select example" name="socioId" 
                             [(ngModel)]="socioId">
 
-                                <optgroup label="Elige un socio">
-                                    <option *ngFor="let s of socios" value={{s.id}}>{{ s.nombre }} {{ s.apellidos }}</option>
-                                </optgroup>
+                                <option value="" selected>Selecciona un socio</option>
+                                <option *ngFor="let s of socios" value={{s.id}}>{{ s.nombre }} {{ s.apellidos }}</option>
                                 
                             </select>
                         </div>

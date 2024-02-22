@@ -49,6 +49,8 @@ export class RegistrarBarcoComponent implements OnInit{
 
     }
 
+    console.log(barco)
+
     this.service.create(barco).pipe(
       catchError(error => {
         this.toast.error("Error al registrar el barco: " + error.error.message, "", {
