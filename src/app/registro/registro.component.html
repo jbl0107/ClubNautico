@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de usuario</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <h3 class="text-center">Regístrate</h3>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+
+                <form #myForm="ngForm">
+
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nombre de usuario</label>
+                        <input type="text" name="username" id="username" placeholder="username" required [(ngModel)]="username"
+                        #usernameField="ngModel" class="form-control">
+
+                        <div class="alert alert-danger mt-2" *ngIf="usernameField.touched && usernameField.errors?.['required']">
+                            El nombre de usuario es obligatorio
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">Nombre</label>
+                        <input type="text" name="firstName" id="firstName" placeholder="Nombre" required [(ngModel)]="firstName"
+                        #firstNameField="ngModel" class="form-control">
+
+                        <div class="alert alert-danger mt-2" *ngIf="firstNameField.touched && firstNameField.errors?.['required']">
+                            El nombre es obligatorio
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Apellidos</label>
+                        <input type="text" name="lastName" id="lastName" placeholder="Apellido1 apellido2" required 
+                        [(ngModel)]="lastName" #lastNameField="ngModel" class="form-control">
+
+                        <div class="alert alert-danger mt-2" *ngIf="lastNameField.touched && lastNameField.errors?.['required']">
+                            Los apellidos son obligatorios
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" placeholder="email@email.com" required [(ngModel)]="email"
+                        #emailField="ngModel" class="form-control" pattern="^[A-Za-z0-9+_.-]+@(.+)$">
+
+                        <div class="alert alert-danger mt-2" *ngIf="emailField.touched && emailField.errors?.['required']">
+                            El email es obligatorio
+                        </div>
+
+                        <div class="alert alert-danger mt-2" *ngIf="emailField.touched && emailField.errors?.['pattern']">
+                            El email no tiene el formato correcto
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" name="password" id="password" placeholder="*******" required [(ngModel)]="password"
+                        #passwordField="ngModel" class="form-control" minlength="8">
+
+                        <div class="alert alert-danger mt-2" *ngIf="passwordField.touched && passwordField.errors?.['required']">
+                            La contraseña es obligatoria
+                        </div>
+
+                        <div class="alert alert-danger mt-2" *ngIf="passwordField.touched && passwordField.errors?.['minlength']">
+                            La contraseña no puede tener menos de 8 caracteres
+                        </div>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label for="password2" class="form-label">Repetir contraseña</label>
+                        <input type="password" name="password2" id="password2" placeholder="*******" required
+                        class="form-control" [(ngModel)]="password2" #password2Field="ngModel">
+
+                        <div class="alert alert-danger mt-2" *ngIf="password != password2 && password2Field.touched 
+                        && passwordField.touched">
+                            Las contraseñas no coinciden
+                        </div>
+                    </div>
+                    
+
+                    <div class="centrarBoton">
+                        <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid" (click)="create()">Registrarse</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -8,8 +8,10 @@
 <body>
 
     <div class="flex">
-        <p class="homeText">
-            ¿Deseas disfrutar de nuestra web? Registrate aquí! Si ya lo has hecho, inicia sesión aquí o en la barra de navegación
+        <p class="homeText" *ngIf="hasToken">Bienvenido al club náutico!</p>
+        <p class="homeText" *ngIf="!hasToken">
+            ¿Deseas disfrutar de nuestra web? Inicia sesión o registrate para poder ver el contenido!
+            
         </p>
     </div>
     

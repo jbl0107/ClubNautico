@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de socios</title>
+    <title>Salidas del barco</title>
 </head>
 <body>
 
     <div class="container">
         <br>
-        <button class="btn btn-success" [routerLink]="['/registrar-socio']">Añadir socio</button>
-        <h3 class="text-center">Socios</h3>
+        <h3 class="text-center">Salidas del barco</h3>
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col" class="text-center">ID</th>
-                    <th scope="col" class="text-center">DNI</th>
-                    <th scope="col" class="text-center">Nombre</th>
-                    <th scope="col" class="text-center">Barcos</th>
+                    <th scope="col" class="text-center">Fecha de salida</th>
+                    <th scope="col" class="text-center">Destino</th>
                     <th scope="col" class="text-center">Detalles</th>
                     <th scope="col" class="text-center">Editar</th>
                     <th scope="col" class="text-center">Borrar</th>
@@ -25,21 +23,17 @@
             </thead>
 
             <tbody>
-                <tr *ngFor="let s of socios">
+                <tr *ngFor="let s of salidas">
                     <td class="text-center">{{ s.id }}</td>
-                    <td class="text-center">{{ s.dni }}</td>
-                    <td class="text-center">{{ s.nombre }}</td>
-
-                    <td class="text-center">
-                        <i class="bi bi-truck" *ngIf="s.id" (click)="verListadoBarcos(s.id)"></i>
-                    </td>
+                    <td class="text-center">{{ s.fechaSalida }}</td>
+                    <td class="text-center">{{ s.destino }}</td>
 
                     <td class="text-center">
                         <i class="bi bi-eye" *ngIf="s.id" (click)="verDetalles(s.id)"></i>
                     </td>
 
                     <td class="text-center">
-                        <i class="bi bi-pencil-square" *ngIf="s.id" (click)="actualizarSocio(s.id)"></i>
+                        <i class="bi bi-pencil-square" *ngIf="s.id" (click)="actualizarSalida(s.id)"></i>
                     </td>
 
                     <td class="text-center">

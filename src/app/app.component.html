@@ -7,11 +7,12 @@
     <title>Home</title>
 </head>
 <body>
-    <h1 class="textCenter">{{title}}</h1>
+    <h1 class="text-center">{{title}}</h1>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="">Club nautico</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -21,23 +22,38 @@
               </li>
               
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/listado-personas']" routerLinkActive="active">Personas</a>
+                <a class="nav-link" [routerLink]="['/listado-personas']" routerLinkActive="active" *ngIf="hasToken()">Personas</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/listado-socios']" routerLinkActive="active">Socios</a>
+                <a class="nav-link" [routerLink]="['/listado-socios']" routerLinkActive="active" *ngIf="hasToken()">Socios</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/listado-patrones']" routerLinkActive="active">Patrones</a>
+                <a class="nav-link" [routerLink]="['/listado-patrones']" routerLinkActive="active" *ngIf="hasToken()">Patrones</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/listado-barcos']" routerLinkActive="active">Barcos</a>
+                <a class="nav-link" [routerLink]="['/listado-barcos']" routerLinkActive="active" *ngIf="hasToken()">Barcos</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/listado-salidas']" routerLinkActive="active">Salidas</a>
+                <a class="nav-link" [routerLink]="['/listado-salidas']" routerLinkActive="active" *ngIf="hasToken()">Salidas</a>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!hasToken()">Iniciar sesión</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/registro']" routerLinkActive="active" *ngIf="!hasToken()">Registrarse</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link logout" (click)="logout()" *ngIf="hasToken()">
+                  Cerrar sesión</a>
               </li>
             </ul>
             

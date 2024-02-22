@@ -21,33 +21,49 @@ import { ActualizarBarcoComponent } from './actualizar-barco/actualizar-barco.co
 import { RegistrarSalidaComponent } from './registrar-salida/registrar-salida.component';
 import { DetallesSalidaComponent } from './detalles-salida/detalles-salida.component';
 import { ActualizarSalidaComponent } from './actualizar-salida/actualizar-salida.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { LoginGuard } from './guards/login.guard';
+import { BarcosSocioComponent } from './barcos-socio/barcos-socio.component';
+import { BarcosPatronComponent } from './barcos-patron/barcos-patron.component';
+import { SalidasBarcoComponent } from './salidas-barco/salidas-barco.component';
 
 const routes: Routes = [
+
+   
   {path:'', component:HomeComponent},
-  {path: 'listado-personas', component:ListarPersonaComponent},
-  {path: 'registrar-persona', component:RegistrarPersonaComponent},
-  {path: 'detalles-persona/:id', component:DetallesPersonaComponent},
-  {path: 'actualizar-persona/:id', component:ActualizarPersonaComponent},
 
-  {path: 'listado-socios', component:ListarSocioComponent},
-  {path: 'registrar-socio', component:RegistrarSocioComponent},
-  {path: 'detalles-socio/:id', component:DetallesSocioComponent},
-  {path: 'actualizar-socio/:id', component:ActualizarSocioComponent},
+  //con canActivate establecemos los guards. los ejecuta en orden, uno detras d otro. Con q uno dé false, ya no permitirá el acceso
+  {path: 'listado-personas', component:ListarPersonaComponent, canActivate: [LoginGuard]},
+  {path: 'registrar-persona', component:RegistrarPersonaComponent, canActivate: [LoginGuard]},
+  {path: 'detalles-persona/:id', component:DetallesPersonaComponent, canActivate: [LoginGuard]},
+  {path: 'actualizar-persona/:id', component:ActualizarPersonaComponent, canActivate: [LoginGuard]},
+
+  {path: 'listado-socios', component:ListarSocioComponent, canActivate: [LoginGuard]},
+  {path: 'registrar-socio', component:RegistrarSocioComponent, canActivate: [LoginGuard]},
+  {path: 'detalles-socio/:id', component:DetallesSocioComponent, canActivate: [LoginGuard]},
+  {path: 'actualizar-socio/:id', component:ActualizarSocioComponent, canActivate: [LoginGuard]},
   
-  {path: 'listado-patrones', component:ListarPatronComponent},
-  {path: 'registrar-patron', component:RegistrarPatronComponent},
-  {path: 'detalles-patron/:id', component:DetallesPatronComponent},
-  {path: 'actualizar-patron/:id', component:ActualizarPatronComponent},
+  {path: 'listado-patrones', component:ListarPatronComponent, canActivate: [LoginGuard]},
+  {path: 'registrar-patron', component:RegistrarPatronComponent, canActivate: [LoginGuard]},
+  {path: 'detalles-patron/:id', component:DetallesPatronComponent, canActivate: [LoginGuard]},
+  {path: 'actualizar-patron/:id', component:ActualizarPatronComponent, canActivate: [LoginGuard]},
 
-  {path: 'listado-barcos', component:ListarBarcoComponent},
-  {path: 'registrar-barco', component:RegistrarBarcoComponent},
-  {path: 'detalles-barco/:id', component:DetallesBarcoComponent},
-  {path: 'actualizar-barco/:id', component:ActualizarBarcoComponent},
+  {path: 'listado-barcos', component:ListarBarcoComponent, canActivate: [LoginGuard]},
+  {path: 'registrar-barco', component:RegistrarBarcoComponent, canActivate: [LoginGuard]},
+  {path: 'detalles-barco/:id', component:DetallesBarcoComponent, canActivate: [LoginGuard]},
+  {path: 'actualizar-barco/:id', component:ActualizarBarcoComponent, canActivate: [LoginGuard]},
+  {path: 'listado-barcos-socio/:id', component:BarcosSocioComponent, canActivate: [LoginGuard]},
+  {path: 'listado-barcos-patron/:id', component:BarcosPatronComponent, canActivate: [LoginGuard]},
 
-  {path: 'listado-salidas', component:ListarSalidaComponent},
-  {path: 'registrar-salida', component:RegistrarSalidaComponent},
-  {path: 'detalles-salida/:id', component:DetallesSalidaComponent},
-  {path: 'actualizar-salida/:id', component:ActualizarSalidaComponent},
+  {path: 'listado-salidas', component:ListarSalidaComponent, canActivate: [LoginGuard]},
+  {path: 'registrar-salida', component:RegistrarSalidaComponent, canActivate: [LoginGuard]},
+  {path: 'detalles-salida/:id', component:DetallesSalidaComponent, canActivate: [LoginGuard]},
+  {path: 'actualizar-salida/:id', component:ActualizarSalidaComponent, canActivate: [LoginGuard]},
+  {path: 'listado-salidas-barco/:id', component:SalidasBarcoComponent, canActivate: [LoginGuard]},
+
+  {path: 'login', component:LoginComponent},
+  {path: 'registro', component:RegistroComponent},
 
 ];
 

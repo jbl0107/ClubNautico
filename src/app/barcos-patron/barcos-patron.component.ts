@@ -1,29 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { BarcoService } from '../service/barco/barco.service';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { catchError } from 'rxjs';
+import { BarcoService } from '../service/barco/barco.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Barco } from '../interfaces/barco';
 
 @Component({
-  selector: 'app-listar-barco',
-  templateUrl: './listar-barco.component.html',
-  styleUrls: ['./listar-barco.component.css']
+  selector: 'app-barcos-patron',
+  templateUrl: './barcos-patron.component.html',
+  styleUrls: ['./barcos-patron.component.css']
 })
-export class ListarBarcoComponent implements OnInit{
+export class BarcosPatronComponent implements OnInit{
 
   barcos:Barco[] = [];
+  id!:number;
+  hasBarcos!:boolean;
 
-  constructor(private service:BarcoService, private router:Router, private toast:ToastrService) {}
+  constructor(private service:BarcoService, private router:Router, private toast:ToastrService,
+    private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getAll();
+    this.id = this.route.snapshot.params['id'];
+    this.getByPatronId();
+
   }
 
-  getAll() {
-    this.service.getAll().pipe(
+  getByPatronId() {
+    console.log(this.id)
+    this.service.getByPatronId(this.id).pipe(
       catchError(error => {
-        this.toast.error("Error al mostrar el listado de barcos", "", {
+        this.toast.error("Error al mostrar el listado de barcos del patron", "", {
           timeOut: 5000,
           closeButton: true,
         });
@@ -32,6 +38,13 @@ export class ListarBarcoComponent implements OnInit{
 
     ).subscribe(barcos => {
       this.barcos = barcos;
+
+      if(barcos.length > 0){
+        this.hasBarcos = true;
+  
+      }else{
+        this.hasBarcos = false;
+      }
     })
   }
 
@@ -54,16 +67,12 @@ export class ListarBarcoComponent implements OnInit{
         timeOut: 3000,
         closeButton: true,
       });
-      this.getAll();
+      this.getByPatronId();
     })
   }
 
   actualizarBarco(id:number) {
     this.router.navigate(['/actualizar-barco', id]);
-  }
-
-  verListadoSalidas(id:number) {
-    this.router.navigate(['/listado-salidas-barco', id]);
   }
 
 }

@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de barcos</title>
+    <title>Barcos del socio</title>
 </head>
 <body>
 
     <div class="container">
         <br>
-        <button class="btn btn-success" [routerLink]="['/registrar-barco']">Añadir barco</button>
-        <h3 class="text-center">Listado de barcos</h3>
+        <h3 class="text-center">Barcos del socio</h3>
 
-        <table class="table">
+        <table class="table" *ngIf="hasBarcos">
             <thead>
                 <tr>
                     <th scope="col" class="text-center">ID</th>
                     <th scope="col" class="text-center">Matrícula</th>
                     <th scope="col" class="text-center">Nombre</th>
-                    <th scope="col" class="text-center">Salidas</th>
                     <th scope="col" class="text-center">Ver detalles</th>
                     <th scope="col" class="text-center">Editar</th>
                     <th scope="col" class="text-center">Borrar</th>
@@ -31,10 +29,6 @@
                     <td class="text-center">{{b.id}}</td>
                     <td class="text-center">{{b.matricula}}</td>
                     <td class="text-center">{{b.nombre}}</td>
-
-                    <td class="text-center">
-                        <i class="bi bi-truck" *ngIf="b.id" (click)="verListadoSalidas(b.id)"></i>
-                    </td>
 
                     <td class="text-center">
                         <i class="bi bi-eye" *ngIf="b.id" (click)="verDetalles(b.id)"></i>
@@ -51,6 +45,9 @@
             </tbody>
 
         </table>
+
+        <br>
+        <p *ngIf="!hasBarcos" class="text-center fs-3">Este socio no posee barcos</p>
     </div>
     
 </body>

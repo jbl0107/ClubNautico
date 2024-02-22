@@ -71,11 +71,11 @@
                         <div class="mb-3 div-select">
                             <label for="patron" class="form-label">Patrón</label>
                             <select class="form-select" id="patron" aria-label="Default select example" name="patronId"
-                            [(ngModel)]="patronId">
+                            [(ngModel)]="patronId" >
 
-                                <optgroup label="Elige un patrón">
-                                    <option *ngFor="let p of patrones" value={{p.id}}>{{ p.nombre }} {{p.apellidos}}</option>
-                                </optgroup>
+                            <optgroup label="Elige un patrón">
+                                <option *ngFor="let p of patrones" value={{p.id}}>{{ p.nombre }} {{p.apellidos}}</option>
+                            </optgroup>
                                 
                             </select>
                         </div>

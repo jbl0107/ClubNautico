@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PersonaService } from './service/persona/persona.service';
 import { FormsModule } from '@angular/forms';
 import { ListarPersonaComponent } from './listar-persona/listar-persona.component';
@@ -33,6 +33,14 @@ import { SalidaService } from './service/salida/salida.service';
 import { DetallesSalidaComponent } from './detalles-salida/detalles-salida.component';
 import { ActualizarSalidaComponent } from './actualizar-salida/actualizar-salida.component';
 import { RegistrarSalidaComponent } from './registrar-salida/registrar-salida.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './service/auth/auth.service';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegistroComponent } from './registro/registro.component';
+import { LoginGuard } from './guards/login.guard';
+import { BarcosSocioComponent } from './barcos-socio/barcos-socio.component';
+import { BarcosPatronComponent } from './barcos-patron/barcos-patron.component';
+import { SalidasBarcoComponent } from './salidas-barco/salidas-barco.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +66,11 @@ import { RegistrarSalidaComponent } from './registrar-salida/registrar-salida.co
     DetallesSalidaComponent,
     ActualizarSalidaComponent,
     RegistrarSalidaComponent,
+    LoginComponent,
+    RegistroComponent,
+    BarcosSocioComponent,
+    BarcosPatronComponent,
+    SalidasBarcoComponent,
     
   ],
   imports: [
@@ -69,7 +82,14 @@ import { RegistrarSalidaComponent } from './registrar-salida/registrar-salida.co
     ToastrModule.forRoot()
     
   ],
-  providers: [PersonaService, provideToastr(), SocioService, BarcoService, PatronService, SalidaService],
+  providers: [PersonaService, provideToastr(), SocioService, BarcoService, PatronService, SalidaService, AuthService, 
+    LoginGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor, //nuestra clase interceptor
+      multi: true
+    }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

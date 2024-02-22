@@ -34,6 +34,10 @@ export class SalidaService {
     return this.http.put<Salida>(`${this.urlAPI}/${id}`, salida);
   }
 
+  getByBarcoId(id:number):Observable<Salida[]> {
+    return this.http.get<Salida[]>(`${this.urlAPI}/barco/${id}`);
+  }
+
   
 
   parsearFecha(fechaSalida:string):string{

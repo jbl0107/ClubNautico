@@ -17,7 +17,7 @@
                     <th scope="col" class="text-center">ID</th>
                     <th scope="col" class="text-center">DNI</th>
                     <th scope="col" class="text-center">Nombre</th>
-                    <th scope="col" class="text-center">Apellidos</th>
+                    <th scope="col" class="text-center">Barcos</th>
                     <th scope="col" class="text-center">Detalles</th>
                     <th scope="col" class="text-center">Editar</th>
                     <th scope="col" class="text-center">Borrar</th>
@@ -29,7 +29,10 @@
                     <td class="text-center">{{ p.id }}</td>
                     <td class="text-center">{{ p.dni }}</td>
                     <td class="text-center">{{ p.nombre }}</td>
-                    <td class="text-center">{{ p.apellidos }}</td>
+
+                    <td class="text-center">
+                        <i class="bi bi-truck" *ngIf="p.id" (click)="verListadoBarcos(p.id)"></i>
+                    </td>
 
                     <td class="text-center">
                         <i class="bi bi-eye" *ngIf="p.id" (click)="verDetalles(p.id)"></i>

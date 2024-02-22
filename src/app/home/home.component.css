@@ -3,5 +3,9 @@
     justify-content: center;
     align-items: center;
     height: 80vh; /*hacemos q el elemento ocupe tenga mas altura */
-    font-size: 25px;
+    font-size: 22px;
+}
+
+.enlace {
+    margin: 5px 5px;
 }

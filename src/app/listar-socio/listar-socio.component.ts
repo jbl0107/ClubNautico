@@ -70,6 +70,10 @@ export class ListarSocioComponent implements OnInit{
     this.router.navigate(['/actualizar-socio', id]);
   }
 
+  verListadoBarcos(id:number) {
+    this.router.navigate(['/listado-barcos-socio', id]);
+  }
+
 
 
 

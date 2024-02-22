@@ -9,6 +9,8 @@ import { Barco } from 'src/app/interfaces/barco';
 export class BarcoService {
 
   urlAPI:string = "http://localhost:8080/api/v1/barcos";
+  
+  token!: string | null;
 
   constructor(private http: HttpClient) { }
 
@@ -33,5 +35,12 @@ export class BarcoService {
   }
 
 
+  getBySocioId(id:number):Observable<Barco[]> {
+    return this.http.get<Barco[]>(`${this.urlAPI}/socio/${id}`);
+  }
+
+  getByPatronId(id:number):Observable<Barco[]> {
+    return this.http.get<Barco[]>(`${this.urlAPI}/patron/${id}`);
+  }
   
 }

@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
 import { Barco } from '../interfaces/barco';
 import { Socio } from '../interfaces/socio';
-import { Salida } from '../interfaces/salida';
 import { Patron } from '../interfaces/patron';
 import { PatronService } from '../service/patron/patron.service';
 import { SocioService } from '../service/socio/socio.service';
