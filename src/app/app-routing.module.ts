@@ -27,6 +27,7 @@ import { LoginGuard } from './guards/login.guard';
 import { BarcosSocioComponent } from './barcos-socio/barcos-socio.component';
 import { BarcosPatronComponent } from './barcos-patron/barcos-patron.component';
 import { SalidasBarcoComponent } from './salidas-barco/salidas-barco.component';
+import { SalidasPatronComponent } from './salidas-patron/salidas-patron.component';
 
 const routes: Routes = [
 
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path: 'detalles-salida/:id', component:DetallesSalidaComponent, canActivate: [LoginGuard]},
   {path: 'actualizar-salida/:id', component:ActualizarSalidaComponent, canActivate: [LoginGuard]},
   {path: 'listado-salidas-barco/:id', component:SalidasBarcoComponent, canActivate: [LoginGuard]},
+  {path: 'listado-salidas-patron/:id', component:SalidasPatronComponent, canActivate: [LoginGuard]},
 
   {path: 'login', component:LoginComponent},
   {path: 'registro', component:RegistroComponent},

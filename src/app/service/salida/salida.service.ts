@@ -38,6 +38,10 @@ export class SalidaService {
     return this.http.get<Salida[]>(`${this.urlAPI}/barco/${id}`);
   }
 
+  getByPatronId(id:number):Observable<Salida[]> {
+    return this.http.get<Salida[]>(`${this.urlAPI}/patron/${id}`);
+  }
+
   
 
   parsearFecha(fechaSalida:string):string{

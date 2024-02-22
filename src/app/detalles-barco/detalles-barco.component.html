@@ -47,7 +47,7 @@
                     <!--a diferencia de <div class="mb-3" *ngIf="barco.patronId !== undefined">, q solo comprueba si es undefined, 
                         aqui se valora tbm si no es NaN, null, false, 0, "", ademas de undefined-->
                     <div class="mb-3" *ngIf="barco.patronId">
-                        <label for="patron" class="form-label">Patron</label>
+                        <label for="patron" class="form-label">Patrón</label>
                         <input type="text" class="form-control" name="patron" id="patron" disabled 
                         [value]="patron.nombre + ' ' + patron.apellidos + ' con DNI: ' + patron.dni">
                     </div>

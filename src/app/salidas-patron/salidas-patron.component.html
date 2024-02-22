@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salidas del barco</title>
+    <title>Salidas del patrón</title>
 </head>
 <body>
 
     <div class="container">
         <br>
-        <h3 class="text-center">Salidas del barco</h3>
+        <h3 class="text-center">Salidas del patrón</h3>
         <table class="table" *ngIf="hasSalidas">
             <thead>
                 <tr>
@@ -43,9 +43,8 @@
             </tbody>
         </table>
 
-
         <br>
-        <p *ngIf="!hasSalidas" class="text-center fs-3">Este barco no posee salidas</p>
+        <p *ngIf="!hasSalidas" class="text-center fs-3">Este patrón no tiene salidas</p>
     </div>
     
 </body>

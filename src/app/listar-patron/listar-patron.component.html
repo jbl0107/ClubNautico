@@ -18,6 +18,7 @@
                     <th scope="col" class="text-center">DNI</th>
                     <th scope="col" class="text-center">Nombre</th>
                     <th scope="col" class="text-center">Barcos</th>
+                    <th scope="col" class="text-center">Salidas</th>
                     <th scope="col" class="text-center">Detalles</th>
                     <th scope="col" class="text-center">Editar</th>
                     <th scope="col" class="text-center">Borrar</th>
@@ -32,6 +33,10 @@
 
                     <td class="text-center">
                         <i class="bi bi-truck" *ngIf="p.id" (click)="verListadoBarcos(p.id)"></i>
+                    </td>
+
+                    <td class="text-center">
+                        <i class="bi bi-truck" *ngIf="p.id" (click)="verListadoSalidas(p.id)"></i>
                     </td>
 
                     <td class="text-center">

@@ -72,5 +72,9 @@ export class ListarPatronComponent implements OnInit{
     this.router.navigate(['/listado-barcos-patron', id]);
   }
 
+  verListadoSalidas(id: number) {
+    this.router.navigate(['/listado-salidas-patron', id]);
+  }
+
 
 }

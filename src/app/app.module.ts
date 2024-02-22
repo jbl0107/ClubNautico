@@ -41,6 +41,7 @@ import { LoginGuard } from './guards/login.guard';
 import { BarcosSocioComponent } from './barcos-socio/barcos-socio.component';
 import { BarcosPatronComponent } from './barcos-patron/barcos-patron.component';
 import { SalidasBarcoComponent } from './salidas-barco/salidas-barco.component';
+import { SalidasPatronComponent } from './salidas-patron/salidas-patron.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { SalidasBarcoComponent } from './salidas-barco/salidas-barco.component';
     BarcosSocioComponent,
     BarcosPatronComponent,
     SalidasBarcoComponent,
+    SalidasPatronComponent,
     
   ],
   imports: [
