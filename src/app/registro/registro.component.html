@@ -79,20 +79,13 @@
                     </div>
 
 
-                    <div class="mb-3">
-                        <label for="password2" class="form-label">Repetir contraseña</label>
-                        <input type="password" name="password2" id="password2" placeholder="*******" required
-                        class="form-control" [(ngModel)]="password2" #password2Field="ngModel">
 
-                        <div class="alert alert-danger mt-2" *ngIf="password != password2 && password2Field.touched 
-                        && passwordField.touched">
-                            Las contraseñas no coinciden
-                        </div>
-                    </div>
                     
 
                     <div class="centrarBoton">
-                        <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid" (click)="create()">Registrarse</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid" (click)="create()">
+                            Registrarse
+                        </button>
                     </div>
 
                 </form>

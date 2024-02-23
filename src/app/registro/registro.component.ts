@@ -18,7 +18,6 @@ export class RegistroComponent implements OnInit{
   email!:string;
   password!:string;
 
-  password2!:string;
 
   constructor(private service: AuthService, private router: Router, private toast: ToastrService) {}
 
@@ -87,6 +86,6 @@ export class RegistroComponent implements OnInit{
   private home() {
     this.router.navigate(['/']);
   }
-  
 
+  
 }
