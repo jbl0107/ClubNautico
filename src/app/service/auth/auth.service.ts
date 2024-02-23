@@ -29,8 +29,8 @@ export class AuthService {
     return this.http.post<Usuario>(this.urlRegister, usuario);
   }
 
-  refreshToken(token:string|null, refreshToken:string|null):Observable<Credencial> {
-    return this.http.post<Credencial>(this.urlRefresh, {token, refreshToken});
+  refreshToken(refreshToken:string|null):Observable<Credencial> {
+    return this.http.post<Credencial>(this.urlRefresh, refreshToken);
   }
 
 
