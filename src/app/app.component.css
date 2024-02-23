@@ -1,3 +1,7 @@
 .logout{
     cursor: pointer;
 }
+
+.navbar-p {
+    background-color: #daeefc;
+}
