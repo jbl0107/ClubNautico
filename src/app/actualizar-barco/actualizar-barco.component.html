@@ -66,7 +66,7 @@
 
 
                     <div class="mb-3" *ngIf="barco.patronId">
-                        <label for="cuota" class="form-label">Patrón</label>
+                        <label for="cuota" class="form-label">Dueño</label>
 
                         <input type="text" class="form-control" name="patron" id="patron" disabled 
                         [value]="patron.nombre + ' ' + patron.apellidos + ' con DNI: ' + patron.dni">
@@ -75,7 +75,7 @@
 
 
                     <div class="mb-3" *ngIf="barco.socioId">
-                        <label for="socio" class="form-label">Socio</label>
+                        <label for="socio" class="form-label">Dueño</label>
                         <input type="text" class="form-control" name="socio" id="socio" disabled 
                         [value]="socio.nombre + ' ' + socio.apellidos + ' con DNI: ' + socio.dni">
 
