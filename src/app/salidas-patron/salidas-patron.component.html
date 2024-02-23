@@ -13,7 +13,6 @@
         <table class="table" *ngIf="hasSalidas">
             <thead>
                 <tr>
-                    <th scope="col" class="text-center">ID</th>
                     <th scope="col" class="text-center">Fecha de salida</th>
                     <th scope="col" class="text-center">Destino</th>
                     <th scope="col" class="text-center">Detalles</th>
@@ -24,7 +23,6 @@
 
             <tbody>
                 <tr *ngFor="let s of salidas">
-                    <td class="text-center">{{ s.id }}</td>
                     <td class="text-center">{{ s.fechaSalida }}</td>
                     <td class="text-center">{{ s.destino }}</td>
 
